@@ -167,7 +167,7 @@
                     .append($('<span/>', {"class": "glyphicon glyphicon-remove-circle remove", "data-url": file.delete_url}));
                 if (!file.type || file.type.search(/image\/.*/g) !== -1) {
                     item.removeClass('not-image').addClass('image');
-                    item.prepend($('<img/>', {src: file.base_url + '/' +file.path}));
+                    item.prepend($('<img/>', {src: file.domain + file.base_url + '/' +file.path}));
                     item.find('span.type').text('');
                 } else {
                     item.removeClass('image').addClass('not-image');

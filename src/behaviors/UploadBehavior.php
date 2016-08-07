@@ -392,7 +392,8 @@ class UploadBehavior extends Behavior
             $data = [
                 'type' => $fs->getMimetype($file['path']),
                 'size' => $fs->getSize($file['path']),
-                'timestamp' => $fs->getTimestamp($file['path'])
+                'timestamp' => $fs->getTimestamp($file['path']),
+                'domain' => $this->getStorage()->domain
             ];
             foreach ($data as $k => $v) {
                 if (!array_key_exists($k, $file) || !$file[$k]) {

@@ -36,6 +36,10 @@ class Storage extends Component
      */
     public $baseUrl;
     /**
+     * @var string
+     */
+    public $domain = null;
+    /**
      * @var
      */
     public $filesystemComponent;
@@ -61,7 +65,11 @@ class Storage extends Component
         if ($this->baseUrl !== null) {
             $this->baseUrl = Yii::getAlias($this->baseUrl);
         }
-
+        
+        if ($this->domain !== null) {
+            $this->domain = \Yii::getAlias($this->domain);
+        }
+        
         if ($this->filesystemComponent !== null) {
             $this->filesystem = Yii::$app->get($this->filesystemComponent);
         } else {
