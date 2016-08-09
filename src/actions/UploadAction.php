@@ -115,7 +115,8 @@ class UploadAction extends BaseAction
                 $this->responseNameParam => Html::encode($uploadedFile->name),
                 $this->responseMimeTypeParam => $uploadedFile->type,
                 $this->responseSizeParam => $uploadedFile->size,
-                $this->responseBaseUrlParam =>  $this->getFileStorage()->baseUrl
+                $this->responseBaseUrlParam =>  $this->getFileStorage()->baseUrl,
+                'domain' => $this->getFileStorage()->domain
             ];
             if ($uploadedFile->error === UPLOAD_ERR_OK) {
                 $validationModel = DynamicModel::validateData(['file' => $uploadedFile], $this->validationRules);
